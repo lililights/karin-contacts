@@ -21,6 +21,7 @@
     "mysql2": "^2.3.3",
     "promise": "^8.1.0",
     "react": "^18.1.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",

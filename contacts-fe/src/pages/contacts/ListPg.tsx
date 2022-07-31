@@ -6,6 +6,7 @@ import LinkBtn from "../common/components/LinkBtn"
 import { ChangeEvent, useEffect, useState } from "react";
 import { useListDispatchContext } from "./components/ListContextProvider";
 import { useSearchContext, useSetSearchContext } from "./components/SearchContextProvider";
+import { isWindows } from "react-device-detect";
 
 const ListPg = () => {
     const contactsService = new ContactsService();
@@ -31,13 +32,13 @@ const ListPg = () => {
                 :
                 <div>
                     <div className="btns">
-                        <LinkBtn name="add" icon="💘" path="/add" />
+                        <LinkBtn name="add" icon={isWindows ? '💗' : '💘'} path="/add" />
                     </div>
                     <input
                         name="search"
                         className="search-input"
                         value={(type === 'INPUT' ? keyword : '')}
-                        placeholder="🔍 SEARCH"
+                        placeholder={isWindows ? '🌈 SEARCH' : '🔍 SEARCH'}
                         onChange={getKeyword}
                     />
                     <ShowList />

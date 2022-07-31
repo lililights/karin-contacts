@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { ResponseContact } from "../../service/contacts/model/ContactsModel";
 import { useCIdxContext } from "./components/CIdxContextProvider";
+import { isWindows } from "react-device-detect";
 
 const DetailPg = () => {
     const contactsService = new ContactsService();
@@ -51,10 +52,10 @@ const DetailPg = () => {
             {detail &&
                 <div>
                     <div className="btns">
-                        <LinkBtn name="add" icon="💘" path="/add" />
-                        <LinkBtn name="edit" icon="✨" path={`/edit`} />
-                        <ActionBtn name="delete" icon="🍰" type="button" handleClick={deleteContact} />
-                        <LinkBtn name="list" icon="🍬" path="/" />
+                        <LinkBtn name="add" icon={isWindows ? '🥨' : '💘'} path="/add" />
+                        <LinkBtn name="edit" icon={isWindows ? '🧁' : '✨'} path={`/edit`} />
+                        <ActionBtn name="delete" icon={isWindows ? '🍩' : '🍰'} type="button" handleClick={deleteContact} />
+                        <LinkBtn name="list" icon={isWindows ? '🍰' : '🍬'} path="/" />
                     </div>
                     <div className="detail">
                         <ShowDetail detail={detail} />

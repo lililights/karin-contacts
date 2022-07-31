@@ -36,10 +36,14 @@ section::-webkit-scrollbar {
     height: 100%;
     text-align: center;
     display: table-cell;
-    padding-top: 5px; /* ios */
+    padding-top: 5px;
     font-size: 170%;
     font-weight: 800;
     background-color: rgba(0, 0, 0, 0);
+}
+
+#title>.title-win {
+    padding-top: 0px;
 }
 
 #title:hover {
@@ -85,6 +89,10 @@ section::-webkit-scrollbar {
     font-family: initial;
 }
 
+.menu-win {
+    padding-left: 3px;
+}
+
 .btn:hover .menu {
     text-decoration: underline;
 }
@@ -125,6 +133,13 @@ section::-webkit-scrollbar {
     color: #000;
 }
 
+.list-row-phone-win {
+    padding: 0 0 5px 20px;
+    font-size: 65%;
+    font-weight: lighter;
+    color: #000;
+}
+
 .list-row-group {
     float: right;
     width: 77px;
@@ -142,6 +157,10 @@ section::-webkit-scrollbar {
     font-style: italic;
     display: inline-block;
     opacity: 50%;
+}
+
+.list-row-group>.group-win {
+    padding: 2px 6px 2px 5px;
 }
 
 .list-row a:visited {

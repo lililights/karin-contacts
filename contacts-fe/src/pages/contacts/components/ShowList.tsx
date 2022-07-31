@@ -6,6 +6,7 @@ import { phoneEx } from "../../../utils/Expressions";
 import { useSearchContext, useSetSearchContext } from "./SearchContextProvider";
 import ErrorMessage from "../../common/components/ErrorMessage";
 import { useRef } from "react";
+import { isWindows } from "react-device-detect";
 
 const checkEng = /^[a-zA-Z]*$/;
 
@@ -31,12 +32,12 @@ const ListRow = ({ cIdx, cName, cPhone, cGroup }: ResponseList) => {
             <Link to={'/detail'} onClick={() => { setCIdx(cIdx) }}>
                 <div className="list-row-link">
                     <div className="list-row-name">{cName}</div>
-                    <div className="list-row-phone">{phoneEx(cPhone)}</div>
+                    <div className={isWindows ? 'list-row-phone-win' : 'list-row-phone'}>{phoneEx(cPhone)}</div>
                 </div>
             </Link>
             <div className="list-row-group">
                 {cGroup &&
-                    <div onClick={() => {
+                    <div className={isWindows ? 'group-win' : ''} onClick={() => {
                         setSearch({ type: 'GROUP', keyword: cGroup })
                     }}>{cGroup}</div>}
             </div>

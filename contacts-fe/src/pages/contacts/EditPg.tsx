@@ -10,6 +10,7 @@ import { birthdayEx, phoneEx } from "../../utils/Expressions";
 import { useCIdxContext } from "./components/CIdxContextProvider";
 import { useFormDispatchContext, useFormStateContext } from "./components/FormConextProvider";
 import { validAll } from "../../utils/ValidationCheck";
+import { isWindows } from "react-device-detect";
 
 const EditPg = () => {
     const contactsService = new ContactsService();
@@ -65,8 +66,8 @@ const EditPg = () => {
                 :
                 <form onSubmit={onSubmitForm}>
                     <div className="btns">
-                        <ActionBtn name="Ok!" icon="💝" type="submit" />
-                        <LinkBtn name="cancel" icon="🍒" />
+                        <ActionBtn name="Ok!" icon={isWindows ? '🍉' : '💝'} type="submit" />
+                        <LinkBtn name="cancel" icon={isWindows ? '🥑' : '🍒'} />
                     </div>
                     <InsertForm />
                 </form>
