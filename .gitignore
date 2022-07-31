@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+contacts-fe/cypress/integration/1-getting-started/todo.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/actions.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/aliasing.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/assertions.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/connectors.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/cookies.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/cypress_api.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/files.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/local_storage.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/location.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/misc.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/navigation.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/network_requests.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/querying.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/sample_spec.js
+contacts-fe/cypress/integration/2-advanced-examples/spies_stubs_clocks.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/traversal.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/utilities.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/viewport.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/waiting.spec.js
+contacts-fe/cypress/integration/2-advanced-examples/window.spec.js
+contacts-fe/src/service/contacts/fn.ts
+contacts-fe/src/sum.ts
+contacts-fe/src/sum.ts
+contacts-fe/src/test.spec.ts

@@ -1,0 +1,43 @@
+[
+    {
+        "cIdx": "1",
+        "cName": "AAA",
+        "cPhone": "01011111111",
+        "cEmail": "aaa@gmail.com"
+    },
+    {
+        "cIdx": "2",
+        "cName": "BBB",
+        "cPhone": "01022222222",
+        "cBirthday": "2000-01-01",
+        "cGroup": "friend"
+    },
+    {
+        "cIdx": "3",
+        "cName": "BBC"
+    },
+    {
+        "cIdx": "4",
+        "cName": "CCC"
+    },
+    {
+        "cIdx": "5",
+        "cName": "DDD"
+    },
+    {
+        "cIdx": "6",
+        "cName": "DDE"
+    },
+    {
+        "cIdx": "7",
+        "cName": "EEE"
+    },
+    {
+        "cIdx": "8",
+        "cName": "FFF"
+    },
+    {
+        "cIdx": "9",
+        "cName": "FFG"
+    }
+]
