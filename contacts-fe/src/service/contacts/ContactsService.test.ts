@@ -12,14 +12,16 @@ describe('ContactsService 테스트', () => {
         cPhone: '01023121321',
         cEmail: 'aaa@email.com',
         cBirthday: '',
-        cGroup: 'AAA'
+        cGroup: 'AAA',
+        cVersion: '1'
     }, {
         cIdx: '2',
         cName: 'Wendy',
         cPhone: '01077554633',
         cEmail: '',
         cBirthday: '',
-        cGroup: "BBB"
+        cGroup: "BBB",
+        cVersion: '1'
     }]
 
     describe('1. loadContactsList 테스트', () => {
@@ -70,12 +72,13 @@ describe('ContactsService 테스트', () => {
             }
 
             const response = {
+                cVersion: '2',
                 ...responseList,
                 requestContact
             }
 
             contactsService.fnRest = jest.fn<() => Promise<ResponseList[]>>().mockResolvedValue(response);
-            const result = await contactsService.updateContact(testIndex.toString(), requestContact);
+            const result = await contactsService.updateContact(testIndex.toString(), '1', requestContact);
             expect(result).toEqual(response);
         })
     })

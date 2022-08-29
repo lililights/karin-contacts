@@ -12,6 +12,7 @@ export interface ResponseContact {
     cEmail: string;
     cBirthday: string;
     cGroup: string;
+    cVersion: string;
 }
 
 export interface RequestContact {

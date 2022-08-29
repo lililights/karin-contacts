@@ -53,7 +53,7 @@ const DetailPg = () => {
                 <div>
                     <div className="btns">
                         <LinkBtn name="add" icon={isWindows ? '🥨' : '💘'} path="/add" />
-                        <LinkBtn name="edit" icon={isWindows ? '🧁' : '✨'} path={`/edit`} />
+                        <LinkBtn name="edit" icon={isWindows ? '🧁' : '✨'} path={`/edit/${detail.cVersion}`} />
                         <ActionBtn name="delete" icon={isWindows ? '🍩' : '🍰'} type="button" handleClick={deleteContact} />
                         <LinkBtn name="list" icon={isWindows ? '🍰' : '🍬'} path="/" />
                     </div>

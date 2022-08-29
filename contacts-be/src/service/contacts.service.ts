@@ -31,22 +31,8 @@ class ContactsService {
         let result: T;
         let connection;
 
-        try {
-            connection = await this.mysqlPool.getConnection();
-            connection.beginTransaction();
-
-            const { insertId: newIdx } = await this.repository.insertContact(request, connection);
-            result = await this.repository.getContact(newIdx, connection);
-
-            connection && connection.commit();
-
-        } catch (error) {
-            connection && connection.rollback();
-            throw error;
-
-        } finally {
-            connection && connection.release();
-        }
+        const { insertId: newIdx } = await this.repository.insertContact(request, connection);
+        result = await this.repository.getContact(newIdx, connection);
 
         return result;
     }
@@ -59,8 +45,13 @@ class ContactsService {
             connection = await this.mysqlPool.getConnection();
             connection.beginTransaction();
 
-            await this.repository.updateContact(request, connection);
-            result = await this.repository.getContact(request.cIdx, connection);
+            let { affectedRows } = await this.repository.updateContact(request, connection);
+
+            if (affectedRows === 1){
+                result = await this.repository.getContact(request.cIdx, connection);
+            } else {
+                result = undefined;
+            }
 
             connection && connection.commit();
 
@@ -78,22 +69,7 @@ class ContactsService {
     public async deleteContact<T>(request: RequestDeleteContact): Promise<T> {
         let result: T;
         let connection;
-
-        try {
-            connection = await this.mysqlPool.getConnection();
-            connection.beginTransaction();
-
-            result = await this.repository.deleteContact(request, connection);
-
-            connection && connection.commit();
-
-        } catch (error) {
-            connection && connection.rollback();
-            throw error;
-
-        } finally {
-            connection && connection.release();
-        }
+        result = await this.repository.deleteContact(request, connection);
 
         return result;
     }

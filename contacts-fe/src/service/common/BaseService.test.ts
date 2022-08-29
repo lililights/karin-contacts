@@ -23,6 +23,7 @@ describe('BaseService 테스트', () => {
 
             const newContact: ResponseContact = {
                 cIdx: '1',
+                cVersion: '1',
                 ...requestBody
             }
 

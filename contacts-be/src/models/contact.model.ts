@@ -15,6 +15,7 @@ export interface RequestUpdateContact {
     cEmail: string;
     cBirthday: string;
     cGroup: string;
+    cVersion: string;
 }
 
 export type RequestDeleteContact = string;

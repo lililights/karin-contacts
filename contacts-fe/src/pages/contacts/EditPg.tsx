@@ -5,7 +5,7 @@ import ErrorMessage from "../common/components/ErrorMessage";
 import LinkBtn from "../common/components/LinkBtn"
 import ActionBtn from "../common/components/ActionBtn";
 import { useState, useCallback, FormEvent, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { birthdayEx, phoneEx } from "../../utils/Expressions";
 import { useCIdxContext } from "./components/CIdxContextProvider";
 import { useFormDispatchContext, useFormStateContext } from "./components/FormConextProvider";
@@ -19,6 +19,7 @@ const EditPg = () => {
     const currentCIdx = useCIdxContext().current;
     const formState = useFormStateContext();
     const formDispatch = useFormDispatchContext();
+    const { version } = useParams();
 
     useEffect(() => {
         contactsService.loadContact(currentCIdx)
@@ -28,9 +29,9 @@ const EditPg = () => {
                     type: 'ALL', state: {
                         ...data,
                         cPhone: phoneEx(data.cPhone),
-                        cEmail: data.cEmail ? data.cEmail : '',
+                        cEmail: data.cEmail || '',
                         cBirthday: data.cBirthday ? birthdayEx(data.cBirthday.substring(0, 10).replaceAll('-', '')) : '',
-                        cGroup: data.cGroup ? data.cGroup : '',
+                        cGroup: data.cGroup || '',
                     }
                 })
             })
@@ -46,10 +47,15 @@ const EditPg = () => {
             alert(warning);
             return;
         } else {
-            contactsService.updateContact(currentCIdx, formState)
-                .then(() => {
-                    alert('변경사항이 저장되었습니다.');
-                    navigate('/detail');
+            contactsService.updateContact(currentCIdx, version || '', formState)
+                .then((response) => {
+                    if (!response) {
+                        alert('데이터 동시 접속으로 저장에 실패하였습니다. 잠시 후 다시 시도해 주세요.');
+                        navigate('/detail');
+                    } else {
+                        alert('변경사항이 저장되었습니다.');
+                        navigate('/detail');
+                    }
                 })
                 .catch((err) => {
                     alert('에러가 발생했습니다. 관리자에게 문의하세요.');

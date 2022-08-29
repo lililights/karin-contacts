@@ -37,6 +37,7 @@ describe('ContactsService 테스트', () => {
 
     const requestUpdate = {
         cIdx: mockRequestParam,
+        cVersion: mockRequestParam,
         ...mockRequestContact
     }
 

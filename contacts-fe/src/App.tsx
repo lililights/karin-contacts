@@ -20,7 +20,7 @@ const App = () => {
                 <Route path={'/*'} element={<ListPg />} />
                 <Route path={'/detail'} element={<DetailPg />} />
                 <Route path={'/add'} element={<AddPg />} />
-                <Route path={'/edit'} element={<EditPg />} />
+                <Route path={'/edit/:version'} element={<EditPg />} />
               </Routes>
             </BrowserRouter>
           </FormConextProvider>

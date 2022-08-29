@@ -29,17 +29,11 @@ class ContactsController {
             cBirthday: req.body.cBirthday,
             cGroup: req.body.cGroup
         }
-
-        const result: ResponseContact = await this.service.insertContact(newContact);
-        const responseResult = {
-            statusCode: res.statusCode === 200 ? "성공" : res.statusCode,
-            ...result
-        }
-
-        return responseResult;
+        
+        return await this.service.insertContact(newContact);;
     }
 
-    @httpPut('/:cIdx')
+    @httpPut('/:cIdx/:cVersion')
     public async updateContact(@request() req: express.Request) {
         const editContact: RequestUpdateContact = {
             cIdx: req.params.cIdx,
@@ -47,7 +41,8 @@ class ContactsController {
             cPhone: req.body.cPhone,
             cEmail: req.body.cEmail,
             cBirthday: req.body.cBirthday,
-            cGroup: req.body.cGroup
+            cGroup: req.body.cGroup,
+            cVersion: req.params.cVersion
         }
 
         return await this.service.updateContact(editContact);

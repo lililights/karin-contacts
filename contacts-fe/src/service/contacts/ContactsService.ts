@@ -48,13 +48,13 @@ export default class ContactsService extends BaseService {
         }
     }
 
-    async updateContact(cIdx: string, contact: RequestContact): Promise<ResponseContact> {
+    async updateContact(cIdx: string, cVersion: string, contact: RequestContact): Promise<ResponseContact> {
         contact.cName = contact.cName.trim();
         contact.cPhone = contact.cPhone.replaceAll('-', '');
         if (contact.cGroup) { contact.cGroup = contact.cGroup.trim(); }
 
         const method = 'PUT';
-        const url = `/contacts/${cIdx}`;
+        const url = `/contacts/${cIdx}/${cVersion}`;
         const params = null;
         const body = contact;
 
