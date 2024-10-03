@@ -12,7 +12,7 @@
   VS Code, docker, adminer  
 
 - ### 실행방법
-    1. __karin-contacts__ 디렉토리에서 아래 명령어 실행  
+    1. __karin-contacts__ 디렉토리에서 아래 명령어 실행  (Docker 설치 필요)
         ```bash
         $ docker-compose up -d
         ```
